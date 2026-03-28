@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UMB Exchange Messages</title>
+    <link rel="stylesheet" href="messages.css">
+</head>
+<body>
+
+<h2>Messages</h2>
+
+<div class="chat-container">
+    <div id="messages-box"></div>
+    <div class="input-container">
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <button id="send-button" onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="messages.js"></script>
+
+</body>
+</html>

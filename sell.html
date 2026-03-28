@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell a Book</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+
+<div class="sell-container">
+    <h2>Sell a Textbook</h2>
+
+    <form id="listingForm" class="sell-form">
+
+        <select id="course_code" required>
+            <option value="">Select Course</option>
+        </select>
+
+        <input type="text" id="title" placeholder="Book Title" required>
+
+        <input type="text" id="edition" placeholder="Edition (ex: 5th Edition)">
+
+        <input type="number" id="price" placeholder="Price" step="0.01" required>
+
+        <select id="book_condition" required>
+            <option value="">Select Condition</option>
+            <option value="New">New</option>
+            <option value="Like New">Like New</option>
+            <option value="Good">Good</option>
+            <option value="Used">Used</option>
+        </select>
+
+        <label>How useful was this book?</label>
+        <div class="star-rating">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
+        </div>
+        <p style="font-size:12px; color:gray; margin-top:-10px;">
+    Optional – helps other students decide
+</p>
+        <input type="hidden" id="rating" name="rating">
+
+        <textarea id="description" placeholder="Optional description..."></textarea>
+
+        <button type="submit">Create Listing</button>
+
+    </form>
+</div>
+
+<script>
+document.getElementById("listingForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const seller_email = localStorage.getItem("userEmail");
+
+    if (!seller_email) {
+        alert("You must be logged in.");
+        window.location.href = "index.html";
+        return;
+    }
+
+    const data = {
+        course_code: document.getElementById("course_code").value,
+        title: document.getElementById("title").value,
+        edition: document.getElementById("edition").value,
+        price: document.getElementById("price").value,
+        book_condition: document.getElementById("book_condition").value,
+        rating: document.getElementById("rating").value,
+        description: document.getElementById("description").value,
+        seller_email: seller_email
+    };
+
+    const res = await fetch("/createListing", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+
+    if (result.success) {
+        alert("Listing created!");
+        window.location.href = "browse.html";
+    } else {
+        alert("Error: " + result.message);
+    }
+});
+</script>
+<!-- STAR RATING SCRIPT -->
+<script>
+const stars = document.querySelectorAll(".star-rating span");
+const ratingInput = document.getElementById("rating");
+
+stars.forEach(star => {
+    star.addEventListener("click", () => {
+        const value = star.getAttribute("data-value");
+
+        ratingInput.value = value;
+
+        stars.forEach(s => s.classList.remove("active"));
+
+        for (let i = 0; i < value; i++) {
+            stars[i].classList.add("active");
+        }
+    });
+});
+</script>
+
+<script>
+const courses = [
+
+/* CS */
+"CS105","CS107","CS109","CS110","CS114L","CS119",
+"CS187SL","CS188SL","CS210","CS220","CS240","CS271L",
+"CS285L","CS310","CS341","CS410","CS413","CS415",
+"CS420","CS430","CS435","CS436","CS437","CS438",
+"CS442","CS443","CS444","CS446","CS449","CS450",
+"CS451","CS460","CS461","CS470","CS478","CS480",
+"CS495","CS498",
+
+/* IT */
+"IT110","IT111L","IT114L","IT116","IT117","IT187SL",
+"IT188SL","IT220","IT221","IT230L","IT240","IT244",
+"IT246","IT285L","IT341","IT360","IT370","IT420",
+"IT421","IT425L","IT428L","IT442","IT443","IT444",
+"IT456","IT460","IT461L","IT471","IT472","IT478",
+"IT480","IT485"
+
+];
+
+const select = document.getElementById("course_code");
+
+// sort alphabetically
+courses.sort();
+
+courses.forEach(course => {
+    const option = document.createElement("option");
+    option.value = course;
+    option.textContent = course;
+    select.appendChild(option);
+});
+</script>
+
+</body>
+</html>

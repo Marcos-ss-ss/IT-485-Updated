@@ -1,0 +1,101 @@
+/* General page font and background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Page header */
+h2 {
+    color: #0078d4;
+    margin-bottom: 20px;
+}
+
+/* Chat container */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    max-width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Messages box (scrollable) */
+#messages-box {
+    flex: 1;
+    padding: 10px;
+    height: 400px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ccc;
+    background-color: #fdfdfd;
+}
+
+/* Each message bubble */
+#messages-box p {
+    margin: 5px 0;
+    padding: 8px 12px;
+    border-radius: 20px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/* Sent message (you) */
+#messages-box p.me {
+    background-color: #0078d4;
+    color: #fff;
+    margin-left: auto;
+    text-align: right;
+}
+
+/* Received message (other user) */
+#messages-box p.other {
+    background-color: #e5e5ea;
+    color: #000;
+    margin-right: auto;
+    text-align: left;
+}
+
+/* Input container */
+.input-container {
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+
+/* Message input field */
+#message-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Send button */
+#send-button {
+    padding: 0 20px;
+    border: none;
+    background-color: #0078d4;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#send-button:hover {
+    background-color: #005a9e;
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+    .chat-container {
+        width: 95%;
+    }
+}

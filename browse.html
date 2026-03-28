@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="stylesheet.css">
+<title>Browse Courses</title>
+</head>
+
+<body>
+
+<nav class="topbar">
+    <div class="logo">
+        <img src="umb-logo.png" alt="UMB Exchange Logo">
+    </div>
+
+    <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./sell.html" class="sell-btn">Sell a Book</a>
+        <a href="./messages.html">Messages</a>
+    </div>
+    
+</nav>
+
+<main class="browse-container">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="filters">
+        <h3>Filter Courses</h3>
+
+        <div class="filter-group">
+            <p class="filter-title">Course Level</p>
+            <label><input type="checkbox" value="100"> 100 Level</label>
+            <label><input type="checkbox" value="200"> 200 Level</label>
+            <label><input type="checkbox" value="300"> 300 Level</label>
+            <label><input type="checkbox" value="400"> 400 Level</label>
+        </div>
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <section class="browse-content">
+
+        <div class="browse-header">
+            <div class="breadcrumb">
+                Majors > <span class="active-major" id="currentMajor">All Majors</span>
+            </div>
+
+            <div class="sort-options">
+                <!-- Major Dropdown -->
+                <select id="majorSelect">
+                    <option value="all">All Majors</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="it">Information Technology</option>
+                </select>
+
+                <!-- Sorting  -->
+                <select id="sortSelect">
+                    <option value="default">Sort: Default</option>
+                    <option value="mostListings">Sort: Most Listings</option>
+                    <option value="mostRecent">Sort: Most Recent</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Active Filters -->
+        <div class="active-filters"></div>
+
+        <!-- Course Grid -->
+        <div class="course-grid">
+
+            <!-- ================= CS COURSES ================= -->
+
+<div class="course-card" data-level="100" data-major="cs">
+<h4>CS 105</h4>
+<p>An Introduction to Computer Concepts</p>
+<span class="course-meta">2 Listings</span>
+<a href="listings.html?course=CS105" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="cs">
+<h4>CS 107</h4>
+<p>AI for All: A Non-Technical Introduction to Artificial Intelligence</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS107" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="cs">
+<h4>CS 109</h4>
+<p>Computer Programming for Engineers</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS109" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="cs">
+<h4>CS 110</h4>
+<p>Introduction to Computing</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS110" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="cs">
+<h4>CS 114L</h4>
+<p>Introduction To Java</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS114L" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="cs">
+<h4>CS 119</h4>
+<p>Computer Language Supplement</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS119" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="cs">
+<h4>CS 187SL</h4>
+<p>Science Gateway Seminar I</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS187SL" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="cs">
+<h4>CS 188SL</h4>
+<p>Science Gateway Seminar II</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS188SL" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="cs">
+<h4>CS 210</h4>
+<p>Intermediate Computing with Data Structures</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS210" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="cs">
+<h4>CS 220</h4>
+<p>Applied Discrete Mathematics</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS220" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="cs">
+<h4>CS 240</h4>
+<p>Programming in C</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS240" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="cs">
+<h4>CS 271L</h4>
+<p>Introduction to Cognitive Science</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS271L" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="cs">
+<h4>CS 285L</h4>
+<p>Social Issues and Ethics in Computing</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS285L" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="300" data-major="cs">
+<h4>CS 310</h4>
+<p>Advanced Data Structures and Algorithms</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS310" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="300" data-major="cs">
+<h4>CS 341</h4>
+<p>Computer Architecture and Organization</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS341" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 410</h4>
+<p>An Introduction to Software Engineering</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS410" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 413</h4>
+<p>Applied Cryptography</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS413" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 415</h4>
+<p>User Interface Design</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS415" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 420</h4>
+<p>An Introduction to the Theory of Computation</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS420" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 430</h4>
+<p>Database Management</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS430" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 435</h4>
+<p>Recommender Systems</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS435" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 436</h4>
+<p>Database Application Development</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS436" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 437</h4>
+<p>Database-Backed Web Sites & Web Services</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS437" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 438</h4>
+<p>Applied Machine Learning</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS438" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 442</h4>
+<p>Cybersecurity in the Internet of Things</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS442" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 443</h4>
+<p>Mobile Applications</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS443" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 444</h4>
+<p>An Introduction to Operating Systems</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS444" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 446</h4>
+<p>Introduction to Internetworking</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS446" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 449</h4>
+<p>Introduction to Computer Security</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS449" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 450</h4>
+<p>The Structure of Higher Level Languages</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS450" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 451</h4>
+<p>Compilers</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS451" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 460</h4>
+<p>Graphics</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS460" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 461</h4>
+<p>Computer Games Programming</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS461" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 470</h4>
+<p>An Introduction to Artificial Intelligence</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS470" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 478</h4>
+<p>Independent Study</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS478" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 480</h4>
+<p>Special Topics</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS480" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 495</h4>
+<p>Practicum in Computer Science</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS495" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="cs">
+<h4>CS 498</h4>
+<p>Honors Thesis</p>
+<span class="course-meta">0 Listings</span>
+<a href="listings.html?course=CS498" class="view-btn">View Listings</a>
+</div>
+
+<!-- ================= IT COURSES ================= -->
+
+<div class="course-card" data-level="100" data-major="it" onclick="window.location.href='listings.html?course=IT110'">
+    <h4>IT 110</h4>
+    <p>Information Technology Problem Solving</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT110" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="it" onclick="window.location.href='listings.html?course=IT111L'">
+    <h4>IT 111L</h4>
+    <p>Managerial Statistics</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT111L" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="it" onclick="window.location.href='listings.html?course=IT114L'">
+    <h4>IT 114L</h4>
+    <p>Introduction To Java</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT114L" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="it" onclick="window.location.href='listings.html?course=IT116'">
+    <h4>IT 116</h4>
+    <p>Introduction to Scripting</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT116" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="it" onclick="window.location.href='listings.html?course=IT117'">
+    <h4>IT 117</h4>
+    <p>Intermediate Scripting</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT117" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="it" onclick="window.location.href='listings.html?course=IT187SL'">
+    <h4>IT 187SL</h4>
+    <p>Science Gateway Seminar I</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT187SL" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="100" data-major="it" onclick="window.location.href='listings.html?course=IT188SL'">
+    <h4>IT 188SL</h4>
+    <p>Science Gateway Seminar II</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT188SL" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="it" onclick="window.location.href='listings.html?course=IT220'">
+    <h4>IT 220</h4>
+    <p>Computer Forensics I</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT220" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="it" onclick="window.location.href='listings.html?course=IT221'">
+    <h4>IT 221</h4>
+    <p>Computer Forensics II</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT221" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="it" onclick="window.location.href='listings.html?course=IT230L'">
+    <h4>IT 230L</h4>
+    <p>Relational Databases</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT230L" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="it" onclick="window.location.href='listings.html?course=IT240'">
+    <h4>IT 240</h4>
+    <p>Web Fluency</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT240" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="it" onclick="window.location.href='listings.html?course=IT244'">
+    <h4>IT 244</h4>
+    <p>Introduction to Linux/Unix</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT244" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="it" onclick="window.location.href='listings.html?course=IT246'">
+    <h4>IT 246</h4>
+    <p>Introduction to Networks</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT246" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="200" data-major="it" onclick="window.location.href='listings.html?course=IT285L'">
+    <h4>IT 285L</h4>
+    <p>Social Issues and Ethics in Computing</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT285L" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="300" data-major="it" onclick="window.location.href='listings.html?course=IT341'">
+    <h4>IT 341</h4>
+    <p>Introduction to System Administration</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT341" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="300" data-major="it" onclick="window.location.href='listings.html?course=IT360'">
+    <h4>IT 360</h4>
+    <p>Enterprise Software</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT360" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="300" data-major="it" onclick="window.location.href='listings.html?course=IT370'">
+    <h4>IT 370</h4>
+    <p>Introduction to Analytics</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT370" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT420'">
+    <h4>IT 420</h4>
+    <p>Network and Mobile Forensics</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT420" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT421'">
+    <h4>IT 421</h4>
+    <p>Digital Forensics/Malware Analysis</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT421" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT425L'">
+    <h4>IT 425L</h4>
+    <p>Project Management</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT425L" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT428L'">
+    <h4>IT 428L</h4>
+    <p>Information System Security</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT428L" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT442'">
+    <h4>IT 442</h4>
+    <p>Windows System Administration</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT442" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT443'">
+    <h4>IT 443</h4>
+    <p>Network Security Administration I</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT443" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT444'">
+    <h4>IT 444</h4>
+    <p>Network Security Administration II</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT444" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT456'">
+    <h4>IT 456</h4>
+    <p>Information Storage and Management</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT456" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT460'">
+    <h4>IT 460</h4>
+    <p>Integration Methodologies and Tools</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT460" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT461L'">
+    <h4>IT 461L</h4>
+    <p>Systems Analysis and Design</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT461L" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT471'">
+    <h4>IT 471</h4>
+    <p>Data Warehousing for Business Intelligence</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT471" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT472'">
+    <h4>IT 472</h4>
+    <p>Data Mining for Management Applications</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT472" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT478'">
+    <h4>IT 478</h4>
+    <p>Independent Study</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT478" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT480'">
+    <h4>IT 480</h4>
+    <p>Special Topics</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT480" class="view-btn">View Listings</a>
+</div>
+
+<div class="course-card" data-level="400" data-major="it" onclick="window.location.href='listings.html?course=IT485'">
+    <h4>IT 485</h4>
+    <p>Information Technology Capstone</p>
+    <span class="course-meta">0 Listings</span>
+    <a href="listings.html?course=IT485" class="view-btn">View Listings</a>
+</div>
+
+        </div>
+    </section>
+</main>
+
+<!-- JavaScript Filtering -->
+<script>
+const checkboxes = document.querySelectorAll('.filter-group input');
+const courses = document.querySelectorAll('.course-card');
+const activeFiltersContainer = document.querySelector('.active-filters');
+const majorSelect = document.getElementById('majorSelect');
+const currentMajorText = document.getElementById('currentMajor');
+
+// Event Listeners
+checkboxes.forEach(box => {
+    box.addEventListener('change', filterCourses);
+});
+
+majorSelect.addEventListener('change', filterCourses);
+
+// Main Filter Function
+function filterCourses() {
+    const selectedLevels = Array.from(checkboxes)
+        .filter(box => box.checked)
+        .map(box => box.value);
+
+    const selectedMajor = majorSelect.value;
+
+    // Update breadcrumb
+    currentMajorText.textContent =
+        selectedMajor === "all"
+            ? "All Majors"
+            : majorSelect.options[majorSelect.selectedIndex].text;
+
+    courses.forEach(course => {
+        const level = course.getAttribute('data-level');
+        const major = course.getAttribute('data-major');
+
+        const levelMatch =
+            selectedLevels.length === 0 || selectedLevels.includes(level);
+
+        const majorMatch =
+            selectedMajor === "all" || selectedMajor === major;
+
+        if (levelMatch && majorMatch) {
+            course.style.display = "block";
+        } else {
+            course.style.display = "none";
+        }
+    });
+
+    updateActiveFilters(selectedLevels, selectedMajor);
+}
+
+// Active Filter Tags
+function updateActiveFilters(levels, major) {
+    activeFiltersContainer.innerHTML = "";
+
+    // Level Tags
+    levels.forEach(level => {
+        const tag = document.createElement("span");
+        tag.classList.add("filter-tag");
+        tag.textContent = level + " Level ✕";
+
+        tag.addEventListener("click", () => {
+            checkboxes.forEach(box => {
+                if (box.value === level) {
+                    box.checked = false;
+                }
+            });
+            filterCourses();
+        });
+
+        activeFiltersContainer.appendChild(tag);
+    });
+
+    // Major Tag
+    if (major !== "all") {
+        const tag = document.createElement("span");
+        tag.classList.add("filter-tag");
+        tag.textContent =
+            majorSelect.options[majorSelect.selectedIndex].text + " ✕";
+
+        tag.addEventListener("click", () => {
+            majorSelect.value = "all";
+            filterCourses();
+        });
+
+        activeFiltersContainer.appendChild(tag);
+    }
+}
+</script>
+
+<script>
+
+function filterFromSearch() {
+
+    const params = new URLSearchParams(window.location.search);
+    const courseSearch = params.get("course");
+
+    if(!courseSearch) return;
+
+    const courses = document.querySelectorAll(".course-card");
+
+    courses.forEach(course => {
+
+        const courseTitle = course.querySelector("h4").textContent.replace(" ", "").toUpperCase();
+
+        if(courseTitle.includes(courseSearch.toUpperCase())){
+            course.style.display = "block";
+        } else {
+            course.style.display = "none";
+        }
+
+    });
+
+}
+
+// run when page loads
+filterFromSearch();
+
+</script>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const socket = io();
+    const sortSelect = document.getElementById("sortSelect");
+
+    let courseData = {};
+
+    async function updateListingCounts() {
+        const res = await fetch("/getListings");
+        const listings = await res.json();
+
+        courseData = {};
+
+        listings.forEach(item => {
+            if (!courseData[item.course_code]) {
+                courseData[item.course_code] = {
+                    count: 0,
+                    latest: new Date(item.created_at).getTime()
+                };
+            }
+
+            courseData[item.course_code].count++;
+
+            const time = new Date(item.created_at).getTime();
+            if (time > courseData[item.course_code].latest) {
+                courseData[item.course_code].latest = time;
+            }
+        });
+
+        updateUI();
+        sortCourses();
+    }
+
+    function updateUI() {
+        document.querySelectorAll(".course-card").forEach(card => {
+            const title = card.querySelector("h4").textContent.replace(" ", "");
+            const courseCode = title.toUpperCase();
+
+            const count = courseData[courseCode]?.count || 0;
+
+            const meta = card.querySelector(".course-meta");
+
+            meta.textContent = count === 1
+                ? "1 Listing"
+                : count + " Listings";
+        });
+    }
+
+    function sortCourses() {
+        const grid = document.querySelector(".course-grid");
+        const cards = Array.from(document.querySelectorAll(".course-card"));
+        const sortType = sortSelect.value;
+
+        if (sortType === "default") return;
+
+        if (sortType === "mostListings") {
+            cards.sort((a, b) => {
+                const aCode = a.querySelector("h4").textContent.replace(" ", "").toUpperCase();
+                const bCode = b.querySelector("h4").textContent.replace(" ", "").toUpperCase();
+
+                const aCount = courseData[aCode]?.count || 0;
+                const bCount = courseData[bCode]?.count || 0;
+
+                return bCount - aCount;
+            });
+        }
+
+        if (sortType === "mostRecent") {
+            cards.sort((a, b) => {
+                const aCode = a.querySelector("h4").textContent.replace(" ", "").toUpperCase();
+                const bCode = b.querySelector("h4").textContent.replace(" ", "").toUpperCase();
+
+                const aTime = courseData[aCode]?.latest || 0;
+                const bTime = courseData[bCode]?.latest || 0;
+
+                return bTime - aTime;
+            });
+        }
+
+        cards.forEach(card => grid.appendChild(card));
+    }
+
+    // ✅ ONLY ADD EVENT IF ELEMENT EXISTS
+    if (sortSelect) {
+        sortSelect.addEventListener("change", sortCourses);
+    }
+
+    updateListingCounts();
+
+    socket.on("newListing", () => {
+        updateListingCounts();
+    });
+
+});
+</script>
+
+</body>
+</html>

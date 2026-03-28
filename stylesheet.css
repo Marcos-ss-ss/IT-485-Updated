@@ -1,0 +1,704 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Top Bar */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #003366, #00264D);
+    padding: 12px 30px;
+    border-bottom: 4px solid #FFCC00; /* Gold stripe */
+}
+
+/* Logo */
+.logo img {
+    height: 50px;        
+    transform: scale(4.0);  
+    transform-origin: left center;
+}
+
+/* --------------------------------------------------- INDEX.HTML LAYOUT ------------------------------------------ */
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: white;
+    background-color: #1a4f8b;
+    transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+    transform: translateY(-2px);
+    background-color: #163e6a;
+}
+
+/* Highlight Sell Button */
+.sell-btn {
+    background: linear-gradient(to bottom, #FFCC00, #e6b800);
+    color: #003366;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+}
+
+.search-container input {
+    padding: 10px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    width: 200px;
+}
+
+.search-container button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #FFCC00;
+    color: #003366;
+    font-weight: bold;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #e6b800;
+}
+
+/* Search Suggestions */
+#suggestions{
+    position:absolute;
+    background:white;
+    width:200px;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    margin-top:45px;
+    overflow:hidden;
+    z-index:1000;
+}
+
+.suggestion-item{
+    padding:10px;
+    cursor:pointer;
+    border-bottom:1px solid #eee;
+}
+
+.suggestion-item:hover{
+    background:#f5f5f5;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(to bottom, #003366, #00264D);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 35px;
+    opacity: 0.95;
+}
+
+.hero-buttons a {
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: 0.2s ease;
+}
+
+.primary-btn {
+    background-color: #FFCC00;
+    color: #003366;
+}
+
+.primary-btn:hover {
+    background-color: #e6b800;
+}
+
+.secondary-btn {
+    background-color: white;
+    color: #003366;
+}
+
+.secondary-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* HOW IT WORKS */
+.how-it-works {
+    flex: 2;
+    padding: 0; /* remove huge outer spacing */
+    display: flex;
+    justify-content: center;
+}
+
+/* Smaller container */
+.how-container {
+    background: white;
+    padding: 30px 30px; /* ⬅️ reduced from 70px */
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    max-width: 700px; /* ⬅️ smaller width */
+    width: 100%;
+    text-align: center;
+}
+
+/* Title smaller */
+.how-container h2 {
+    font-size: 24px; /* ⬅️ reduced from 34px */
+    margin-bottom: 25px;
+}
+
+/* Smaller underline */
+.how-container h2::after {
+    width: 50px;
+    height: 3px;
+    margin: 10px auto 0;
+}
+
+/* Steps tighter */
+.steps {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+/* Step cards smaller */
+.step {
+    flex: 1;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+.step:hover {
+    transform: translateY(-3px);
+    background: #f1f5f9;
+}
+
+/* Smaller circles */
+.step-number {
+    width: 35px;
+    height: 35px;
+    background: #FFCC00;
+    color: #003366;
+    border-radius: 8px; /* square instead of circle = modern */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 auto 10px; /* centers it */
+}
+
+/* Text sizing */
+.step h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.step p {
+    font-size: 12px;
+    color: #555;
+}
+
+/* Subtle animation for when page loads*/
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.how-container {
+    padding: 20px;
+    max-width: 600px;
+}
+
+.how-container h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* SPLIT LAYOUT */
+.home-split {
+    display: flex;
+    gap: 25px;      
+    padding: 30px;  
+    align-items: flex-start;
+}
+
+/* TRENDING SECTION */
+.trending-section {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.trending-section h2 {
+    color: #00274C;
+    margin-bottom: 20px;
+}
+
+/* TRENDING ITEMS */
+.trending-item {
+    padding: 15px;
+    border-bottom: 1px solid #e5e7eb;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.trending-item:hover {
+    background: #f8fafc;
+}
+
+.trending-item h4 {
+    margin: 0;
+    color: #2b6cb0;
+}
+
+.trending-item p {
+    margin: 5px 0 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* HOW IT WORKS SIDE */
+.how-it-works {
+    flex: 2;
+}
+
+/* FEATURED COURSE */
+.featured-course {
+    background: linear-gradient(135deg, #2b6cb0, #1e3a8a);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.featured-course h3 {
+    margin: 0;
+}
+
+.featured-course p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* MINI BOOK PREVIEW */
+.book-preview {
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.book-preview small {
+    color: #64748b;
+}
+
+/* --------------------------------------------------- BROWSE.HTML LAYOUT ------------------------------------------ */
+.browse-container {
+    display: flex;
+    padding: 40px 60px;
+    gap: 50px;
+    background-color: #f4f6f8;
+}
+
+/* Sidebar */
+.filters {
+     width: 260px;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    border-top: 5px solid #FFCC00; 
+}
+.filters h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 25px;
+    letter-spacing: 0.3px;
+}
+.filters h3::after {
+    content: "";
+    width: 40px;
+    height: 3px;
+    background-color: #FFCC00;
+    display: block;
+    margin-top: 8px;
+    border-radius: 3px;
+}
+
+.filter-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #667085;
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    color: #344054;
+}
+
+.filter-group label:hover {
+    color: #003366;
+}
+
+.filter-group input[type="checkbox"] {
+    accent-color: #003366;
+    width: 16px;
+    height: 16px;
+}
+/* Right Content */
+.browse-content {
+    flex: 1;
+}
+
+/* Header */
+.browse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 15px;
+}
+
+.breadcrumb {
+    font-size: 14px;
+}
+
+.active-major {
+    font-weight: bold;
+    color: #003366;
+}
+
+/* Sort */
+.sort-options select {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+/* Active Filter Tags */
+.active-filters {
+    margin-bottom: 20px;
+}
+
+.filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(255, 204, 0, 0.15);
+    color: #003366;
+    padding: 7px 14px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s ease;
+    border: 1px solid rgba(255, 204, 0, 0.4);
+}
+
+.filter-tag:hover {
+    background-color: #FFCC00;
+    transform: translateY(-2px);
+}
+
+/* Course Grid */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+.course-card {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+.course-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(to right, #003366, #FFCC00);
+}
+.course-card::after {
+    position: absolute;
+    bottom: 20px;
+    right: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #003366;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.course-card:hover::after {
+    opacity: 1;
+}
+.course-card h4 {
+   font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #003366;
+}
+
+.course-card p {
+    font-size: 14px;
+    color: #475467;
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+.course-meta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f4f7;
+    color: #003366;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.3px;
+}
+.view-btn {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    transition: all 0.15s ease;
+}
+
+.view-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* --------------------------------------------------- LISTINGS.HTML LAYOUT ------------------------------------------ */
+.listings {
+    background-color: #f8fafc;
+}
+
+/* Course Title */
+#course-title {
+    text-align: center;
+    margin: 50px 0 20px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* Listings Grid */
+#listings-container {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Listing Card */
+.listing-card {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.listing-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+}
+
+/* Book Title */
+.listing-card h4 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+/* Price */
+.listing-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 6px;
+}
+
+/* Condition */
+.listing-condition {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 18px;
+}
+
+/* Contact Button */
+.contact-btn {
+    margin-top: auto;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: 600;
+    transition: 0.15s ease;
+}
+
+.contact-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* --------------------------------------------------- SELL.HTML LAYOUT ------------------------------------------ */
+
+.sell-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.sell-container h2 {
+    text-align: center;
+    color: #00274C; /* UMB navy */
+    margin-bottom: 20px;
+}
+
+.sell-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sell-form input,
+.sell-form select,
+.sell-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.sell-form input:focus,
+.sell-form select:focus,
+.sell-form textarea:focus {
+    border-color: #2b6cb0;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(43,108,176,0.2);
+}
+
+.sell-form textarea {
+    resize: none;
+    min-height: 100px;
+}
+
+/* Button */
+.sell-form button {
+    background: #2b6cb0;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.sell-form button:hover {
+    background: #1e4e8c;
+}
+/* =========================
+   STAR RATING
+========================= */
+
+.star-rating {
+    display: flex;
+    gap: 5px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.star-rating span {
+    color: #cbd5e1;
+    transition: 0.2s;
+}
+
+.star-rating span.active {
+    color: #facc15; /* gold */
+}
+.sell-form select {
+    appearance: none;
+    background-color: white;
+    cursor: pointer;
+}

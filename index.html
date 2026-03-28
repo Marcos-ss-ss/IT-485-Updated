@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<nav class="topbar">
+
+    <!-- Logo -->
+    <div class="logo">
+        <img src="umb-logo.png" alt="UMB Exchange Logo">
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./sell.html" class="sell-btn">Sell a Book</a>
+        <a href="./messages.html">Messages</a>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+
+    <input 
+        type="text" 
+        id="courseSearch" 
+        placeholder="Search by course (ex: CS210)"
+        autocomplete="off"
+    >
+
+    <button onclick="searchCourse()">Search</button>
+
+    <!-- Suggestions dropdown -->
+    <div id="suggestions"></div>
+
+</div>
+
+</nav>
+
+<main>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Buy & Sell Textbooks at UMB</h1>
+        <p>Connect with fellow UMass Boston students and save money on course materials.</p>
+
+        <div class="hero-buttons">
+            <a href="./browse.html" class="primary-btn">Browse Books</a>
+            <a href="./sell.html" class="secondary-btn">Sell a Book</a>
+        </div>
+    </div>
+</section>
+
+<!-- TRENDING + HOW IT WORKS -->
+<section class="home-split">
+
+    <!-- LEFT: TRENDING -->
+    <div class="trending-section">
+    <h2>🔥 Trending Courses</h2>
+
+    <!-- FEATURED -->
+    <div id="featured-course"></div>
+
+    <!-- LIST -->
+    <div id="trending-list"></div>
+</div>
+
+    <!-- RIGHT: HOW IT WORKS -->
+    <div class="how-it-works">
+
+        <div class="how-container">
+
+            <h2>How It Works</h2>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Post Your Book</h3>
+                    <p>Upload textbook details and set your price.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Chat Securely</h3>
+                    <p>Message other UMB students directly.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Meet on Campus</h3>
+                    <p>Exchange safely and complete your sale.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<script src="search.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+const socket = io();
+
+async function loadTrending() {
+    const res = await fetch("/getListings");
+    const listings = await res.json();
+
+    const courseData = {};
+
+    listings.forEach(item => {
+        const course = item.course_code;
+
+        if (!courseData[course]) {
+            courseData[course] = {
+                count: 0,
+                recentBoost: 0,
+                latestListing: item
+            };
+        }
+
+        courseData[course].count++;
+
+        // 🔥 RECENCY BOOST (last 48 hours)
+        const now = Date.now();
+        const created = new Date(item.created_at).getTime();
+        const hours = (now - created) / (1000 * 60 * 60);
+
+        if (hours < 48) {
+            courseData[course].recentBoost += 2;
+        }
+
+        // keep latest listing for preview
+        if (created > new Date(courseData[course].latestListing.created_at).getTime()) {
+            courseData[course].latestListing = item;
+        }
+    });
+
+    // compute score
+    const sorted = Object.entries(courseData)
+        .map(([course, data]) => ({
+            course,
+            score: data.count + data.recentBoost,
+            ...data
+        }))
+        .sort((a, b) => b.score - a.score);
+
+    if (sorted.length === 0) {
+    document.getElementById("featured-course").innerHTML =
+        "<p style='color:gray;'>No listings yet</p>";
+    return;
+}
+
+    // =======================
+    // 🔥 FEATURED (TOP 1)
+    // =======================
+    const top = sorted[0];
+    const featuredDiv = document.getElementById("featured-course");
+
+    featuredDiv.innerHTML = `
+        <div class="featured-course" onclick="goToCourse('${top.course}')">
+            <h3>🔥 ${top.course}</h3>
+            <p style="font-size:12px;">Trending now</p>
+            <p>${top.count} Listings</p>
+
+            <div class="book-preview">
+                <strong>${top.latestListing.title}</strong><br>
+                $${top.latestListing.price} • ${top.latestListing.book_condition}
+                <br>
+                <small>Latest listing</small>
+            </div>
+        </div>
+    `;
+
+    // =======================
+    // 📈 REST OF LIST
+    // =======================
+    const container = document.getElementById("trending-list");
+    container.innerHTML = "";
+
+    sorted.slice(1, 5).forEach(item => {
+        const div = document.createElement("div");
+        div.className = "trending-item";
+
+        div.innerHTML = `
+            <h4>${item.course}</h4>
+            <p>${item.count} Listings</p>
+        `;
+
+        div.onclick = () => goToCourse(item.course);
+
+        container.appendChild(div);
+    });
+}
+
+// helper
+function goToCourse(course) {
+    window.location.href = `listings.html?course=${course}`;
+}
+
+// load
+loadTrending();
+
+// real-time
+socket.on("newListing", () => {
+    loadTrending();
+});
+</script>
+
+</body>
+</html>
