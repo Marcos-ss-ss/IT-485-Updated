@@ -9,12 +9,24 @@
 
 <h2>Messages</h2>
 
-<div class="chat-container">
-    <div id="messages-box"></div>
-    <div class="input-container">
-        <input type="text" id="message-input" placeholder="Type a message...">
-        <button id="send-button" onclick="sendMessage()">Send</button>
-    </div>
+<div class="messages-layout">
+    <aside class="conversation-sidebar">
+        <h3>Your Conversations</h3>
+        <div id="conversation-list"></div>
+    </aside>
+
+    <section class="chat-section">
+        <p id="chat-label">Select a conversation</p>
+        <p id="chat-context"></p>
+
+        <div class="chat-container">
+            <div id="messages-box"></div>
+            <div class="input-container">
+                <input type="text" id="message-input" placeholder="Type a message...">
+                <button id="send-button" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </section>
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
