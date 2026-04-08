@@ -8,82 +8,88 @@
 
 <body class="listings">
     <nav class="topbar">
-        <!-- Logo -->
-         <div class="logo">
-        <img src="umb-logo.png" alt="UMB Exchange Logo">
-    </div>
+        <div class="logo">
+            <img src="umb-logo.png" alt="UMB Exchange Logo">
+        </div>
 
-        <!-- Navigation Links -->
         <div class="nav-links">
             <a href="./index.html">Home</a>
             <a href="./sell.html" class="sell-btn">Sell a Book</a>
             <a href="./messages.html">Messages</a>
         </div>
     </nav>
+
     <h2 id="course-title"></h2>
 
-    <div id="listings-container">
-    </div>
-<!-- JAVASCRIPT -->
- <script src="/socket.io/socket.io.js"></script>
+    <div id="listings-container"></div>
 
-<script>
-const socket = io();
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
 
-const params = new URLSearchParams(window.location.search);
-const course = params.get("course");
+        const params = new URLSearchParams(window.location.search);
+        const course = params.get("course");
 
-document.getElementById("course-title").textContent = "Listings for " + course;
+        document.getElementById("course-title").textContent = "Listings for " + course;
 
-async function loadListings() {
-    const res = await fetch(`/getListings?course=${course}`);
-    const data = await res.json();
+        async function loadListings() {
+            const res = await fetch(`/getListings?course=${course}`);
+            const data = await res.json();
 
-    const container = document.getElementById("listings-container");
-    container.innerHTML = "";
+            const container = document.getElementById("listings-container");
+            container.innerHTML = "";
 
-    if (data.length === 0) {
-        container.innerHTML = "<p>No listings yet.</p>";
-        return;
-    }
+            if (data.length === 0) {
+                container.innerHTML = "<p>No listings yet.</p>";
+                return;
+            }
 
-    data.forEach(item => {
-        const div = document.createElement("div");
-        div.className = "listing-card";
+            const currentUserEmail = localStorage.getItem("userEmail");
 
-        div.innerHTML = `
-            <h4>${item.title}</h4>
-            <div class="listing-price">$${item.price}</div>
-            <p>${item.book_condition}</p>
-            <p>Edition: ${item.edition || "N/A"}</p>
-            <p>Rating: ${item.rating || "N/A"}</p>
-            <p>${item.description || ""}</p>
-            <button onclick="deleteListing(${item.id})">Delete</button>
-        `;
+            data.forEach(item => {
+                const div = document.createElement("div");
+                div.className = "listing-card";
 
-        container.appendChild(div);
-    });
-}
+                const encodedTitle = encodeURIComponent(item.title || "");
+                const encodedCourse = encodeURIComponent(item.course_code || "");
+                const listingId = item.id;
 
-async function deleteListing(id) {
-    const seller_email = localStorage.getItem("userEmail");
+                div.innerHTML = `
+                    <h4>${item.title}</h4>
+                    <div class="listing-price">$${item.price}</div>
+                    <p>${item.book_condition}</p>
+                    <p>Edition: ${item.edition || "N/A"}</p>
+                    <p>Rating: ${item.rating || "N/A"}</p>
+                    <p>${item.description || ""}</p>
+                    ${
+                        currentUserEmail === item.seller_email
+                            ? `<button onclick="deleteListing(${item.id})">Delete</button>`
+                            : `<a href="messages.html?receiver_id=${item.seller_id}&listing_id=${listingId}&course=${encodedCourse}&title=${encodedTitle}" class="contact-btn">Message Seller</a>`
+                    }
+                `;
 
-    await fetch("/deleteListing", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ id, seller_email })
-    });
+                container.appendChild(div);
+            });
+        }
 
-    loadListings();
-}
+        async function deleteListing(id) {
+            const seller_email = localStorage.getItem("userEmail");
 
-// 🔥 REAL-TIME UPDATE
-socket.on("newListing", () => {
-    loadListings();
-});
+            await fetch("/deleteListing", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id, seller_email })
+            });
 
-loadListings();
-</script>
+            loadListings();
+        }
+
+        socket.on("newListing", () => {
+            loadListings();
+        });
+
+        loadListings();
+    </script>
 
 </body>
 </html>
